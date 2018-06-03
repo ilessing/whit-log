@@ -1,0 +1,17 @@
+runtime: php55
+api_version: 1
+
+handlers:
+# will serve files with extension of gif, png, or jpg as static resources. The files have been configured to be readable by the application code at runtime.
+
+# Serve images as static resources.
+- url: /(.+\.(gif|png|jpg))$
+  static_files: \1
+  upload: .+\.(gif|png|jpg)$
+  application_readable: true
+
+# will also serve all PHP scripts. You can restrict the script handler to root-level scripts by using the url: /([^/]+\.php) expression.
+# Serve php scripts.
+- url: /(.+\.php)$
+  script: \1
+
